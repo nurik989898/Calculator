@@ -106,16 +106,16 @@ public class MainActivity extends AppCompatActivity {
                 Double result = Double.valueOf(0);
                 switch (operation){
                     case "+":
-                        result = secondVar + firstVar ;
+                        result = firstVar + secondVar ;
                         break;
                     case "-":
-                        result = secondVar - firstVar;
+                        result = firstVar - secondVar;
                         break;
                     case "*":
-                        result = secondVar * firstVar;
+                        result = firstVar * secondVar;
                         break;
                     case "/":
-                        result = secondVar / firstVar;
+                        result = firstVar / secondVar;
                         break;
                     case ".":
                 }
