@@ -2,8 +2,10 @@ package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -14,12 +16,23 @@ public class MainActivity extends AppCompatActivity {
     private double secondVar;
     private String operation;
     private Boolean isOperatin;
+    private Button btn_go;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tvResult = findViewById(R.id.tv_result);
+        btn_go = findViewById(R.id.btn_go);
+        findViewById(R.id.btn_go).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,secondActivity.class);
+                String result = ((TextView)findViewById(R.id.tv_result)).getText().toString();
+                intent.putExtra("result",result);
+                startActivity(intent);
+            }
+        });
     }
 
     public void onNumberClick(View view) {
@@ -67,8 +80,11 @@ public class MainActivity extends AppCompatActivity {
                 setNumber(".");
 
         }
+        btn_go.setVisibility(View.INVISIBLE);
+        isOperatin = false;
     }
     private void setNumber(String number){
+        btn_go.setVisibility(View.INVISIBLE);
         if (tvResult.getText().toString().equals("0")){
             tvResult.setText(number);
         }else if (isOperatin){
@@ -80,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onOperationClick(View view) {
+       btn_go.setVisibility(View.INVISIBLE);
         switch (view.getId()){
             case R.id.plus:
                  firstVar= Double.parseDouble(tvResult.getText().toString());
@@ -102,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 operation = "*";
                 break;
             case R.id.equal:
+                btn_go.setVisibility(view.getVisibility());
                 secondVar= Double.parseDouble(tvResult.getText().toString());
                 Double result = Double.valueOf(0);
                 switch (operation){
@@ -120,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
                     case ".":
                 }
                 tvResult.setText(new DecimalFormat("##.#####").format(result));
+                btn_go.setVisibility(view.getVisibility());
                 isOperatin = true;
                 break;
         }

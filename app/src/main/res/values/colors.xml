@@ -10,4 +10,6 @@
     <color name="grey">#A5A5A5</color>
     <color name="black1">#333333</color>
     <color name="yellow">#FF9E0A</color>
+    <color name="usi">#F1F5F8</color>
+    <color name="blur_ray">#415160</color>
 </resources>

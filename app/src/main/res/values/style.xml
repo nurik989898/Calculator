@@ -5,7 +5,7 @@
      <item name="android:insetBottom">0dp</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="cornerRadius">200dp</item>
         <item name="android:layout_height">80dp</item>
     </style>
@@ -20,5 +20,8 @@
     <style name="dark.Button" parent="Base.Button">
         <item name="backgroundTint">@color/black1</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="splashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
 </resources>

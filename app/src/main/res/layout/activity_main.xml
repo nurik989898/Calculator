@@ -7,6 +7,18 @@
     android:background="@color/black"
     tools:context=".MainActivity">
 
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_margin="50dp"
+        android:backgroundTint="@color/grey"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        app:cornerRadius="15dp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:text="GO"
+        android:id="@+id/btn_go"/>
     <FrameLayout
         android:paddingHorizontal="32dp"
         app:layout_constraintBottom_toTopOf="@id/container1"
